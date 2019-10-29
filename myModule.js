@@ -8,7 +8,7 @@ let manegers = [];
 function register(req, res) {
     let userName = req.body.userName;
     let password = req.body.password;
-    for (let m in manegers) {
+    for (let m of manegers) {
         if (m.userName == userName && m.password == password)
             res.send('you alraedy exist');
     }
@@ -25,7 +25,7 @@ function login(req, res) {
     let password = req.body.password;
     console.log(userName);
     console.log(password);
-    for (let m in manegers) {
+    for (let m of manegers) {
         if (m.userName == userName && m.password == password)
             res.send('hello to ' + userName);
     }
