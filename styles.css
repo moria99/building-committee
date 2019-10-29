@@ -1,0 +1,50 @@
+header {
+    position: fixed;
+    width: 100%;
+}
+
+.Header {
+    color: white;
+    background-color: rgb(7, 68, 58);
+    text-align: center;
+    padding: 7px;
+    font-size: 18px;
+}
+
+.topnav {
+    background-color: rgb(126, 124, 124);
+    margin-top: 3px;
+    overflow: auto;
+}
+
+.topnav a {
+    font-size: 19px;
+    float: right;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+.topnav a:hover {
+    color: white;
+    background-color: rgb(7, 68, 58);
+}
+
+.left {
+    border: 2px solid rgb(7, 68, 58);
+    height: 50%;
+    width: 30%;
+    float: left;
+    position: relative;
+    top: 170px;
+}
+
+.right {
+    border: 2px solid rgb(7, 68, 58);
+    height: 50%;
+    width: 30%;
+    float: right;
+    position: relative;
+    top: 170px;
+    right: 10px;
+}

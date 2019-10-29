@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>login</title>
+    <style type="text/css">
+        h1 {
+            color: greenyellow;
+            background-color: black;
+            text-align: center;
+            font-style: italic;
+
+        }
+
+        img {
+            float: right;
+
+        }
+
+        body {
+            background-color: greenyellow;
+            font-size: 2.5em;
+            font-family: 'times New Roman', Arial;
+            font-weight: 800;
+            text-transform: capitalize;
+        }
+
+        #a {
+            float:right;
+        }
+
+        .enter {
+            padding: 15px 32px;
+            font-size: 25px;
+            background-color: gray;
+            color: greenyellow;
+            margin-top: 100px;
+            cursor: pointer;
+        }
+
+        .forgot {
+            padding: 20px 40px;
+            background-color: gray;
+            color: greenyellow;
+            font-size: 15px;
+            margin-left: 200px;
+            margin-top: 100px;
+
+
+        }
+    </style>
+</head>
+</head>
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+
+<body>
+    <h1>
+        !בניין לעניין
+    </h1>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSk9TFW3zyZZvbMmcfvTY3k-0kAVNLeDqJWOE4P0MktcrA1fYNzsA"
+        height="250" width="auto" alt="בניין לעניין" onmouseover="this.style.zoom='120%'"
+        onmouseout="this.style.zoom='normal'" />
+    <form id="myForm">
+        <table>
+            <tr>
+                <td><label for="user">User: </label></td>
+                <td><input type="text" name="user" id="userName" placeholder="Enter User"></td>
+            </tr>
+            <tr>
+                <td><label for="password">password:</label></td>
+                <td><input type="password" name="password" id="password" placeholder="Enter Password"></td>
+
+            </tr>
+
+            <tr>
+                <td> <input type="button" id="submitBtn" name="submit" value="submit" class="enter"></td>
+                <td></td>
+
+
+                <td> <input type="button" name="password" value="forgot password?" style="cursor:help" class="forgot">
+                </td>
+
+            </tr>
+        </table>
+    </form>
+
+    <script src='./js/login.js'></script>
+</body>
+
+</html> 
