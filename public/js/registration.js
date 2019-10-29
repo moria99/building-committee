@@ -9,7 +9,7 @@
                 // form is valid, create a post request
                 $.ajax({
                     type: "post",
-                    url: "myModule/registration",
+                    url: "myModule/register",
                     // the user data 
                     data: {
                         userName: $('#userName').val(),
