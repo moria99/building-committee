@@ -36,10 +36,12 @@ app.get('/residentRegistresion', function (req, res) {
     })
 });
 
-app.listen(3000); //the server listen to port 3000
+app.listen(3000,()=>{
+ console.log("I listen to port "+port);
+}); //the server listen to port 3000
 
-let sum = lodash.sum([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-console.log("the sum is: " + sum);
+// let sum = lodash.sum([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+// console.log("the sum is: " + sum);
 
 app.post('/myModule/register', (req, res) => {
     return myModule.register(req, res);
