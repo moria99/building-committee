@@ -2,7 +2,7 @@ const express = require('express'); //run express direectory (at js) and put an 
 const lodash = require('lodash'); //run lodash direectory (at js)  and put an output in it.
 const cookiParser = require('cookie-parser');
 const myModule = require("./myModule.js");
-const port = process.env.port || 80;
+const port = process.env.PORT || 80;
 const app = express();
 
 //use is happand before every requst
@@ -36,7 +36,7 @@ app.get('/residentRegistresion', function (req, res) {
     })
 });
 
-app.listen(3000,()=>{
+app.listen(port,()=>{
  console.log("I listen to port "+port);
 }); //the server listen to port 3000
 
