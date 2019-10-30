@@ -2,7 +2,7 @@ const express = require('express'); //run express direectory (at js) and put an 
 const lodash = require('lodash'); //run lodash direectory (at js)  and put an output in it.
 const cookiParser = require('cookie-parser');
 const myModule = require("./myModule.js");
-const port = 3000;
+const port = process.env.port || 4242;
 const app = express();
 
 //use is happand before every requst
