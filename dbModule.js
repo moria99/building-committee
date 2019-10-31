@@ -1,5 +1,9 @@
 const mysql = require('promise-mysql');
 
+module.exports = {
+    getFees
+}
+
 let db;
 
 mysql.createPool({ //create conected to the data base
@@ -10,12 +14,14 @@ mysql.createPool({ //create conected to the data base
     database: "localhost"
 }).then((c) => {
     db = c;
-}).then((db) => {
-    console.log(db);
 }).catch((e) => {
+    console.log("rrr");
     console.error(e);
 });
 
-module.exports = function(req,res){
-    res.send(db);
+async function getFees(){
+    let d=db.query("select * from expenses");
+    let fees=await d;
+    console.log(fees)
+    return fees;
 }

@@ -37,8 +37,7 @@ app.get('/residentRegistresion', function (req, res) {
     })
 });
 app.get('/db', function (req, res) {
-    debugger;
-    res.send(db);
+    console.log(db.getFees()) ;
 });
 
 
