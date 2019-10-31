@@ -2,6 +2,7 @@ const express = require('express'); //run express direectory (at js) and put an 
 const lodash = require('lodash'); //run lodash direectory (at js)  and put an output in it.
 const cookiParser = require('cookie-parser');
 const myModule = require("./myModule.js");
+const dbModule = require("./dbModule.js");
 const port = process.env.PORT || 80;
 const app = express();
 
@@ -35,9 +36,16 @@ app.get('/residentRegistresion', function (req, res) {
         root: __dirname
     })
 });
+app.get('/db-fees', function (req, res) {
+    dbModule.getFees(req, res);
+});
+app.get('/db-expenses', function (req, res) {
+    dbModule.getEexpenses(req, res);
+});
 
-app.listen(port,()=>{
- console.log("I listen to port "+port);
+
+app.listen(port, () => {
+    console.log("I listen to port " + port);
 }); //the server listen to port 3000
 
 // let sum = lodash.sum([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);

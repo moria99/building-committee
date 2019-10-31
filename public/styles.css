@@ -5,7 +5,7 @@ header {
 
 .Header {
     color: white;
-    background-color: rgb(7, 68, 58);
+    background-color: rgb(33, 129, 113);
     text-align: center;
     padding: 7px;
     font-size: 18px;
@@ -15,23 +15,26 @@ header {
     background-color: rgb(126, 124, 124);
     margin-top: 3px;
     overflow: auto;
+    width: 100%;
 }
 
 .topnav a {
+    text-align: center;
     font-size: 19px;
     float: right;
-    padding: 10px;
+    padding: 1%;
     text-decoration: none;
     color: white;
+    width: 18%;
 }
 
 .topnav a:hover {
     color: white;
-    background-color: rgb(7, 68, 58);
+    background-color: rgb(33, 129, 113);
 }
 
 .left {
-    border: 2px solid rgb(7, 68, 58);
+    border: 2px solid rgb(33, 129, 113);
     height: 50%;
     width: 30%;
     float: left;
@@ -40,11 +43,121 @@ header {
 }
 
 .right {
-    border: 2px solid rgb(7, 68, 58);
+    border: 2px solid rgb(33, 129, 113);
     height: 50%;
     width: 30%;
     float: right;
     position: relative;
     top: 170px;
     right: 10px;
+}
+
+/* Style the navigation menu */
+/* Navigation links */
+
+
+/* Style the current/active link */
+.topnav a.active {
+    background-color: rgb(33, 129, 113);
+
+    /* Add responsiveness - on screens less than 500px, make the navigation links appear on top of each other, instead of next to each other */
+    @media screen and (max-width: 500px) {
+        .topnav a {
+            float: none;
+            display: block;
+            width: 100%;
+            text-align: left;
+            /* If you want the text to be left-aligned on small screens */
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+#b {
+    left: 50px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5px auto;
+    /* 15% from the top and centered */
+    border: 1px solid #888;
+    width: 80%;
+    /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    /* Position it in the top right corner outside of the modal */
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+/* Close button on hover */
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {
+        -webkit-transform: scale(0)
+    }
+
+    to {
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes animatezoom {
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
 }
