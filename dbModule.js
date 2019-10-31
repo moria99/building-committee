@@ -19,9 +19,16 @@ mysql.createPool({ //create conected to the data base
     console.error(e);
 });
 
-async function getFees(){
-    let d=db.query("select * from expenses");
-    let fees=await d;
+async function getFees() {
+    let d = db.query("select * from fees");
+    let fees = await d;
     console.log(fees)
     return fees;
+}
+
+async function getEexpenses() {
+    let d = db.query("select * from expenses");
+    let expenses = await d;
+    console.log(expenses)
+    return expenses;
 }
