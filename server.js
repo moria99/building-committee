@@ -2,7 +2,7 @@ const express = require('express'); //run express direectory (at js) and put an 
 const lodash = require('lodash'); //run lodash direectory (at js)  and put an output in it.
 const cookiParser = require('cookie-parser');
 const myModule = require("./myModule.js");
-const db = require("./dbModule.js");
+const dbModule = require("./dbModule.js");
 const port = process.env.PORT || 80;
 const app = express();
 
@@ -36,8 +36,11 @@ app.get('/residentRegistresion', function (req, res) {
         root: __dirname
     })
 });
-app.get('/db', function (req, res) {
-    console.log(db.getFees()) ;
+app.get('/db-fees', function (req, res) {
+    dbModule.getFees(req, res);
+});
+app.get('/db-expenses', function (req, res) {
+    dbModule.getEexpenses(req, res);
 });
 
 
