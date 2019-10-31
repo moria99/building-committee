@@ -11,7 +11,7 @@ app.use(cookiParser()); //parse cookie for comfortable used
 app.use(express.json()); //parse the body to comfortable used
 app.use(express.urlencoded()); //parse the url to comfortable used
 
-//in express module i can play with server more eazy
+//in express module i can used with server more eazy
 app.get('/', function (req, res) {
     res.sendFile('./public/pages/homePage.html', {
         root: __dirname
