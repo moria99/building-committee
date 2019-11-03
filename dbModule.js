@@ -20,11 +20,11 @@ mysql.createPool({ //create conected to the data base
     console.error(e);
 });
 
-async function getFees(req, res) {
-    let d = db.query("select * from fees");
+async function getFees() {
+    let d = db.query("select * from expenses");
     let fees = await d;
     console.log(fees)
-    res.send(fees);
+    return fees;
 }
 
 async function getEexpenses(req, res) {
