@@ -1,3 +1,4 @@
+require('dotenv').config();     //anable decleare veriable in env from hide this veriable in gitHub
 const express = require('express'); //run express direectory (at js) and put an output in it.
 const lodash = require('lodash'); //run lodash direectory (at js)  and put an output in it.
 const cookiParser = require('cookie-parser');
@@ -16,31 +17,29 @@ app.use(express.urlencoded()); //parse the url to comfortable used
 
 //in express module i can play with server more eazy
 app.get('/', function (req, res) {
-    res.sendFile('./public/pages/homePage.html', {
-        root: __dirname
+    res.render('./pages/homePage.ejs', {
     })
 });
 
 app.get('/login', function (req, res) {
-    res.sendFile('./public/pages/login.html', {
-        root: __dirname
+    res.render('./pages/login.ejs', {
     })
 });
 
 app.get('/registration', function (req, res) {
-    res.sendFile('./public/pages/registration.html', {
+    res.sendFile('./views/pages/registration.html', {
         root: __dirname
     })
 });
 
 app.get('/residentRegistresion', function (req, res) {
-    res.sendFile('./public/pages/residentRegistresion.html', {
+    res.sendFile('./views/pages/residentRegistresion.html', {
         root: __dirname
     })
 });
 
 app.get('/fees', function (req, res) {
-    res.render('./fees',{
+    res.render('./pages/fees',{
 
     })
 });

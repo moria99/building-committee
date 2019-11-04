@@ -9,10 +9,10 @@ let db;
 
 mysql.createPool({ //create conected to the data base
     connectionLimit: 100,
-    host: "localhost",
-    user: "root",
-    password: "beitar",
-    database: "localhost"
+    host: process.env.MYSQL_URL,
+    user: process.env.MYSQL_USER,
+    password: process.env.MYSQL_PASSWORD,
+    database: process.env.MYSQL_DB
 }).then((c) => { //it happend after the conection success
     db = c;
 }).catch((e) => {
