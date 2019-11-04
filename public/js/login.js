@@ -10,7 +10,7 @@
                 // form is valid, create a post request
                 $.ajax({
                     type: "post",
-                    url: "myModule/login",
+                    url: "loginReg/login",
                     // the user data 
                     data: {
                         userName: $('#userName').val(),

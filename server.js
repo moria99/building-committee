@@ -2,7 +2,7 @@ require('dotenv').config();     //anable decleare veriable in env from hide this
 const express = require('express'); //run express direectory (at js) and put an output in it.
 const lodash = require('lodash'); //run lodash direectory (at js)  and put an output in it.
 const cookiParser = require('cookie-parser');
-const myModule = require("./myModule.js");
+const loginReg = require("./loginReg.js");
 const dbModule = require("./dbModule.js");
 const port = process.env.PORT || 80;
 const app = express();
@@ -17,24 +17,22 @@ app.use(express.urlencoded()); //parse the url to comfortable used
 
 //in express module i can play with server more eazy
 app.get('/', function (req, res) {
-    res.render('./pages/homePage.ejs', {
+    res.render('./pages/homePage', {
     })
 });
 
 app.get('/login', function (req, res) {
-    res.render('./pages/login.ejs', {
+    res.render('./pages/login', {
     })
 });
 
 app.get('/registration', function (req, res) {
-    res.sendFile('./views/pages/registration.html', {
-        root: __dirname
+    res.render('./pages/registration', {
     })
 });
 
 app.get('/residentRegistresion', function (req, res) {
-    res.sendFile('./views/pages/residentRegistresion.html', {
-        root: __dirname
+    res.render('./pages/residentRegistresion', {
     })
 });
 
@@ -47,7 +45,7 @@ app.get('/fees', function (req, res) {
 app.get('/db-fees',async function (req, res) {
     let fees=await dbModule.getFees();
     console.log(fees);
-    res.render('./template', {       //find temlate.ejs that exist in views directory
+    res.render('./pages/fees', {       //find temlate.ejs that exist in views directory
         feess: fees
     });
 });
@@ -78,9 +76,9 @@ app.listen(port, () => {
 // let sum = lodash.sum([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 // console.log("the sum is: " + sum);
 
-app.post('/myModule/register', (req, res) => {
-    return myModule.register(req, res);
+app.post('/loginReg/register', (req, res) => {
+    return loginReg.register(req, res);
 });
-app.post('/myModule/login', (req, res) => {
-    return myModule.login(req, res);
+app.post('/loginReg/login', (req, res) => {
+    return loginReg.login(req, res);
 });

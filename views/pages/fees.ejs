@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html>
-<%-include homePage %>
 
+<body>
+    <%-include navBar %>
+    <h1>hello!!!</h1>
+    <%for(let f of feess){%>
+    <h2><%=f.balanceDue%></h2>
+    <%}%>
+</body>
 </html>
