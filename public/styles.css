@@ -1,5 +1,5 @@
 header {
-    position: fixed;
+    /* position: fixed; */
     width: 100%;
 }
 
@@ -33,24 +33,7 @@ header {
     background-color: rgb(33, 129, 113);
 }
 
-.left {
-    border: 2px solid rgb(33, 129, 113);
-    height: 50%;
-    width: 30%;
-    float: left;
-    position: relative;
-    top: 170px;
-}
 
-.right {
-    border: 2px solid rgb(33, 129, 113);
-    height: 50%;
-    width: 30%;
-    float: right;
-    position: relative;
-    top: 170px;
-    right: 10px;
-}
 
 /* Style the navigation menu */
 /* Navigation links */
@@ -71,15 +54,6 @@ header {
         }
     }
 }
-
-
-
-
-
-
-
-
-
 
 #b {
     left: 50px;
