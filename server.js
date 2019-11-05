@@ -36,13 +36,9 @@ app.get('/residentRegistresion', function (req, res) {
     })
 });
 
-app.get('/fees', function (req, res) {
-    res.render('./pages/fees',{
 
-    })
-});
 
-app.get('/db-fees',async function (req, res) {
+app.get('/fees',async function (req, res) {
     let fees=await dbModule.getFees();
     //console.log(fees[0].feesDate.getDate());
     res.render('./pages/fees', {       //find temlate.ejs that exist in views directory

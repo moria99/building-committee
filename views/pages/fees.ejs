@@ -6,9 +6,11 @@
 </head>
 
 <body>
-    <%-include navBar %>
-    <h1>hello!!!</h1>
-    <table>
+    <%- include navBar %>
+    <br><br>
+    <h1>:טבלת שכנים</h1>
+    <br><br>
+    <table align="center">
         <tr>
             <th>תאריך</th>
             <th>מס' דירה</th>
@@ -19,7 +21,8 @@
         </tr>
         <%for(let f of feess){%>
         <tr>
-            <td><%=(f.feesDate.getDate()+1)+"/"+(f.feesDate.getMonth()+1)+"/"+f.feesDate.getFullYear()%></td>
+            <%let date=f.feesDate%>
+            <td><%=(date.getDate()+1)+"/"+(date.getMonth()+1)+"/"+date.getFullYear()%></td>
             <td><%=f.apartmentId%></td>
             <td><%=f.amountToPay%></td>
             <td><%=f.amountPayed%></td>
