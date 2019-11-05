@@ -1,9 +1,14 @@
+const db=require("./dbModule.js");
+
 module.exports = {
     register,
     login
 };
 
-let manegers = [];
+let manegers;
+db.getManegers().then(c=>{
+   manegers = c ; 
+})
 
 function register(req, res) {
     let userName = req.body.userName;

@@ -2,7 +2,8 @@ const mysql = require('promise-mysql');
 
 module.exports = {
     getFees,
-    getEexpenses
+    getEexpenses,
+    getManegers
 }
 
 let db;
@@ -32,4 +33,11 @@ async function getEexpenses(req, res) {
     let expenses = await d;
     console.log(expenses)
     res.send(expenses);
+}
+
+async function getManegers() {
+    let d = db.query("select * from manegers");
+    let manegers = await d;
+    console.log(manegers)
+    return manegers;
 }
