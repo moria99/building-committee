@@ -44,7 +44,7 @@ app.get('/fees', function (req, res) {
 
 app.get('/db-fees',async function (req, res) {
     let fees=await dbModule.getFees();
-    console.log(fees);
+    //console.log(fees[0].feesDate.getDate());
     res.render('./pages/fees', {       //find temlate.ejs that exist in views directory
         feess: fees
     });

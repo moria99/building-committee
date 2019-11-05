@@ -1,11 +1,32 @@
 <!DOCTYPE html>
 <html>
 
+<head>
+    <link rel="stylesheet" type="text/css" href="css/tables.css">
+</head>
+
 <body>
     <%-include navBar %>
     <h1>hello!!!</h1>
-    <%for(let f of feess){%>
-    <h2><%=f.balanceDue%></h2>
-    <%}%>
+    <table>
+        <tr>
+            <th>תאריך</th>
+            <th>מס' דירה</th>
+            <th>סכום לתשלום</th>
+            <th>סכום ששולם</th>
+            <th>חוב</th>
+            <th>הערות</th>
+        </tr>
+        <%for(let f of feess){%>
+        <tr>
+            <td><%=(f.feesDate.getDate()+1)+"/"+(f.feesDate.getMonth()+1)+"/"+f.feesDate.getFullYear()%></td>
+            <td><%=f.apartmentId%></td>
+            <td><%=f.amountToPay%></td>
+            <td><%=f.amountPayed%></td>
+            <td><%=f.balanceDue%></td>
+            <td><%=f.comments%></td>
+        </tr>
+        <%}%>
+</table>
 </body>
 </html>
