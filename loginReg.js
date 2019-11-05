@@ -1,20 +1,26 @@
-const db=require("./dbModule.js");
+
+const dbModule = require("./dbModule.js");
 
 module.exports = {
     register,
     login
 };
 
-let manegers;
-db.getManegers().then(c=>{
-   manegers = c ; 
-})
+
+let managers;
+dbModule.connectionPromise
+    .then(() => {
+        dbModule.getManagers()
+            .then((d) => {
+                managers = d;
+            });
+    })
 
 function register(req, res) {
     let userName = req.body.userName;
     let password = req.body.password;
     for (let m of manegers) {
-        if (m.userName == userName && m.password == password)
+        if (m.userName == userName && m.managerPassword == password)
             res.send('you alraedy exist');
     }
     let maneger = {
