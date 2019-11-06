@@ -1,9 +1,13 @@
+const dbModule = require('./dbmodule.js')
+
 module.exports = {
     register,
     login
 };
 
-let manegers = [];
+let managers = dbModule.getManager().then((d) => {
+    managers = d;
+});
 
 function register(req, res) {
     let userName = req.body.userName;
@@ -12,11 +16,11 @@ function register(req, res) {
         if (m.userName == userName && m.password == password)
             res.send('you alraedy exist');
     }
-    let maneger = {
+    let manager = {
         userName,
         password
     };
-    manegers.push(maneger);
+    managers.push(manager);
     res.send('registration successful');
 }
 

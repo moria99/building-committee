@@ -1,0 +1,10 @@
+.image {
+    background-image: url("pillars.jpg");
+    /* The image used */
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: height:100%, width: 100%;
+    /* Resize the background image to cover the entire container */
+}

@@ -1,14 +1,19 @@
 const mysql = require('promise-mysql');
 
-module.exports = {
-    getFees
-}
-
 let db;
 
-mysql.createPool({ //create conected to the data base
+module.exports = {
+    connectionPromise,
+    getFees,
+    getExpenses,
+    getManager
+}
+
+
+
+let connectionPromise = mysql.createPool({ //create conected to the data base
     connectionLimit: 100,
-    host: "localhost",
+    host: process.env.MYSQL_,
     user: "root",
     password: "beitar",
     database: "localhost"
@@ -26,9 +31,17 @@ async function getFees() {
     return fees;
 }
 
-async function getEexpenses() {
+async function
+getExpenses() {
     let d = db.query("select * from expenses");
     let expenses = await d;
     console.log(expenses)
     return expenses;
+}
+
+async function
+getManager() {
+    let d = db.query("select * from manager");
+    let managers = await d;
+    return managers;
 }
