@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config(); //anable decleare veriable in env from hide this veriable in gitHub
 const express = require('express'); //run express direectory (at js) and put an output in it.
 const lodash = require('lodash'); //run lodash direectory (at js)  and put an output in it.
 const cookiParser = require('cookie-parser');
@@ -7,11 +7,9 @@ const dbModule = require("./dbModule.js");
 const port = process.env.PORT || 80;
 const app = express();
 
-
 app.set('view engine', 'ejs');
 
-
-//use is happand before every requst - .use = middleware
+//use is happand before every requst
 app.use(express.static('public')); //like app.get/post for all static file (js or html that dosen't re) that in 'pages' director.
 app.use(cookiParser()); //parse cookie for comfortable used
 app.use(express.json()); //parse the body to comfortable used
@@ -19,40 +17,48 @@ app.use(express.urlencoded()); //parse the url to comfortable used
 
 //in express module i can play with server more eazy
 app.get('/', function (req, res) {
-    res.render('./pages/homePage', {
-
-    })
+    res.render('./pages/homePage', {})
 });
 
 app.get('/login', function (req, res) {
-    res.render('./pages/login', {
-
-    })
+    res.render('./pages/login', {})
 });
 
 app.get('/registration', function (req, res) {
-    res.render('./pages/registration.ejs', {})
-});
-
-app.get('/feeses', function (req, res) {
-    res.render('./pages/feeses', {
-
-    })
+    res.render('./pages/registration', {})
 });
 
 app.get('/residentRegistresion', function (req, res) {
-    res.render('./pages/residentRegistresion.ejs', {})
+    res.render('./pages/residentRegistresion', {})
 });
-app.get('/db-fees', async function (req, res) {
+
+
+
+app.get('/fees', async function (req, res) {
     let fees = await dbModule.getFees();
-
-    res.render('./pages/feeses', {
-        f: fees
-    })
+    //console.log(fees[0].feesDate.getDate());
+    res.render('./pages/fees', { //find temlate.ejs that exist in views directory
+        feess: fees
+    });
+});
+app.get('/db-expenses', function (req, res) {
+    dbModule.getEexpenses(req, res);
 });
 
-app.get('/db-expenses', async function (req, res) {
-    db.getExpenses(req, res);
+// app.get('/userinfo/:user_id', function (req, res) {
+//     console.log(req.params.user_id);    //params - get information from url
+//     res.sendFile('./try.html', {
+//         root: __dirname
+//     })
+// });
+
+app.get('/userinfo/:user_id/:name', function (req, res) {
+    console.log(req.params.user_id); //params - get information from url like :enithing
+    res.render('./template', { //find temlate.ejs that exist in views directory
+        name: req.params.name, //this is a data that send to template file
+        id: req.params.user_id,
+        now: new Date().getDate() + "/" + (new Date().getMonth() + 1) + "/" + new Date().getFullYear()
+    })
 });
 
 app.listen(port, () => {
@@ -67,22 +73,4 @@ app.post('/loginReg/register', (req, res) => {
 });
 app.post('/loginReg/login', (req, res) => {
     return loginReg.login(req, res);
-});
-
-// app.get('/userinfo/:user_id', function (req, res) {
-//     res.sendFile('./userInfo.html', {
-//         root: __dirname
-//     })
-//     //     res.send("<h1>hello " + req.params.user_id + "</h1>")
-// });
-
-app.get('/userinfo/:user_id/:name', function (req, res) {
-    console.log(req.params.user_id)
-    res.render('template', {
-        name: req.params.name,
-        id: req.params.user_id,
-        now: new Date()
-
-    })
-
 });

@@ -2,27 +2,27 @@ const mysql = require('promise-mysql');
 
 let db;
 
+let connectionPromise = mysql.createPool({ //create conected to the data base
+        connectionLimit: 100,
+        host: process.env.MYSQL_URL,
+        user: process.env.MYSQL_USER,
+        password: process.env.MYSQL_PASSWORD,
+        database: process.env.MYSQL_DB
+    })
+    .then((c) => { //it happend after the conection success
+        db = c;
+    })
+    .catch((e) => {
+        console.log("rrr");
+        console.error(e);
+    });
+
 module.exports = {
     connectionPromise,
     getFees,
-    getExpenses,
-    getManager
+    getEexpenses,
+    getManagers
 }
-
-
-
-let connectionPromise = mysql.createPool({ //create conected to the data base
-    connectionLimit: 100,
-    host: process.env.MYSQL_,
-    user: "root",
-    password: "beitar",
-    database: "localhost"
-}).then((c) => {
-    db = c;
-}).catch((e) => {
-    console.log("rrr");
-    console.error(e);
-});
 
 async function getFees() {
     let d = db.query("select * from fees");
@@ -31,16 +31,13 @@ async function getFees() {
     return fees;
 }
 
-async function
-getExpenses() {
+async function getEexpenses(req, res) {
     let d = db.query("select * from expenses");
     let expenses = await d;
-    console.log(expenses)
-    return expenses;
+    res.send(expenses);
 }
 
-async function
-getManager() {
+async function getManagers() {
     let d = db.query("select * from manager");
     let managers = await d;
     return managers;

@@ -1,5 +1,6 @@
         // listen to click event of the submit button
         $('#submitBtn').click(function (e) {
+            debugger;
             // make sure the form is not submitted
             e.preventDefault();
             // run the form validations
@@ -9,7 +10,7 @@
                 // form is valid, create a post request
                 $.ajax({
                     type: "post",
-                    url: "myModule/login",
+                    url: "loginReg/login",
                     // the user data 
                     data: {
                         userName: $('#userName').val(),
