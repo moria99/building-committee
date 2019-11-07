@@ -21,7 +21,7 @@ function register(req, res) {
         if (m.userName == userName && m.managerPassword == password)
             res.send('you alraedy exist');
     }
-    let maneger = {
+    let manager = {
         userName,
         password,
     };
