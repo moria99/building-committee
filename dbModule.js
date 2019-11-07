@@ -22,7 +22,8 @@ module.exports = {
     getFees,
     getPayments,
     getManagers,
-    getResidents
+    getResidents,
+    setManager
 }
 
 async function getFees() {
@@ -49,3 +50,10 @@ async function getResidents() {
     let residents = await d;
     return residents;
 }
+
+async function setManager(m) {
+    let d=db.query("insert into manager (`managerId`, `apartmentId`, `userName`, `managerPassword`) values("+m.managerId+","+m.apartmentId+",'"+m.userName+"','"+m.password+"')");
+    let a=await d;
+    return a;
+}
+

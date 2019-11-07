@@ -17,17 +17,23 @@ dbModule.connectionPromise
 function register(req, res) {
     let userName = req.body.userName;
     let password = req.body.password;
+    let apartmentId = req.body.apartmentId;
+    let managerId = req.body.managerId;
     for (let m of managers) {
         if (m.userName == userName && m.managerPassword == password)
             res.send('you alraedy exist');
     }
     let manager = {
+        managerId,
+        apartmentId,
         userName,
         password,
     };
-   // dbModule.setManager(maneger);
-    // managers.push(maneger);
-    res.send('registration successful');
+    managers.push(manager);
+    console.log(managers);
+    dbModule.setManager(manager).then(() => {
+        res.send('registration successful');
+    });
 }
 
 function login(req, res) {
@@ -36,7 +42,7 @@ function login(req, res) {
     console.log(userName);
     console.log(password);
     for (let m of managers) {
-        if (m.userName == userName && m.password == password)
+        if (m.userName == userName && m.managerPassword == password)
             res.send('hello to ' + userName);
     }
     res.status(500);
