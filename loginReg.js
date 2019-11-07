@@ -17,15 +17,16 @@ dbModule.connectionPromise
 function register(req, res) {
     let userName = req.body.userName;
     let password = req.body.password;
-    for (let m of manegers) {
+    for (let m of managers) {
         if (m.userName == userName && m.managerPassword == password)
             res.send('you alraedy exist');
     }
     let manager = {
         userName,
-        password
+        password,
     };
-    managers.push(manager);
+   // dbModule.setManager(maneger);
+    // managers.push(maneger);
     res.send('registration successful');
 }
 
@@ -34,7 +35,7 @@ function login(req, res) {
     let password = req.body.password;
     console.log(userName);
     console.log(password);
-    for (let m of manegers) {
+    for (let m of managers) {
         if (m.userName == userName && m.password == password)
             res.send('hello to ' + userName);
     }
