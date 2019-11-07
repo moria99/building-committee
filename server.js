@@ -43,7 +43,7 @@ app.get('/fees', async function (req, res) {
 });
 
 app.get('/payments',async function (req, res) {
-    let expenses=await dbModule.getEexpenses();
+    let expenses=await dbModule.getPayments();
     res.render('./pages/payments',{
         expenses:expenses
     })

@@ -12,22 +12,22 @@
     <br><br>
     <table align="center">
         <tr>
-            <th>תאריך</th>
-            <th>מס' דירה</th>
-            <th>סכום לתשלום</th>
-            <th>סכום ששולם</th>
-            <th>חוב</th>
             <th>הערות</th>
+            <th>חוב</th>
+            <th>סכום ששולם</th>
+            <th>סכום לתשלום</th>
+            <th>מס' דירה</th>
+            <th>תאריך</th>
         </tr>
         <%for(let f of feess){%>
         <tr>
             <%let date=f.feesDate%>
-            <td><%=(date.getDate()+1)+"/"+(date.getMonth()+1)+"/"+date.getFullYear()%></td>
-            <td><%=f.apartmentId%></td>
-            <td><%=f.amountToPay%></td>
-            <td><%=f.amountPayed%></td>
-            <td><%=f.balanceDue%></td>
             <td><%=f.comments%></td>
+            <td><%=f.balanceDue%></td>
+            <td><%=f.amountPayed%></td>
+            <td><%=f.amountToPay%></td>
+            <td><%=f.apartmentId%></td>
+            <td><%=(date.getDate()+1)+"/"+(date.getMonth()+1)+"/"+date.getFullYear()%></td>
         </tr>
         <%}%>
 </table>
