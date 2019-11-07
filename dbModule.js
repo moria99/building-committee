@@ -34,7 +34,7 @@ async function getFees() {
 async function getEexpenses(req, res) {
     let d = db.query("select * from expenses");
     let expenses = await d;
-    res.send(expenses);
+    return expenses;
 }
 
 async function getManagers() {

@@ -45,9 +45,12 @@ app.get('/fees',async function (req, res) {
         feess: fees
     });
 });
-app.get('/db-expenses', function (req, res) {
-    dbModule.getEexpenses(req, res);
-});
+app.get('/payments',async function (req, res) {
+    let expenses=await dbModule.getEexpenses();
+    res.render('./pages/payments',{
+        expenses:expenses
+    })
+ });
 
 // app.get('/userinfo/:user_id', function (req, res) {
 //     console.log(req.params.user_id);    //params - get information from url
