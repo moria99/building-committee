@@ -20,8 +20,9 @@ let connectionPromise = mysql.createPool({ //create conected to the data base
 module.exports = {
     connectionPromise,
     getFees,
-    getEexpenses,
-    getManagers
+    getPayments,
+    getManagers,
+    getResidents
 }
 
 async function getFees() {
@@ -31,14 +32,20 @@ async function getFees() {
     return fees;
 }
 
-async function getEexpenses(req, res) {
+async function getPayments(req, res) {
     let d = db.query("select * from expenses");
     let expenses = await d;
-    res.send(expenses);
+    return payments;
 }
 
 async function getManagers() {
     let d = db.query("select * from manager");
     let managers = await d;
     return managers;
+}
+
+async function getResidents() {
+    let d = db.query("select * from residents");
+    let residents = await d;
+    return residents;
 }

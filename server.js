@@ -41,8 +41,17 @@ app.get('/fees', async function (req, res) {
         feess: fees
     });
 });
-app.get('/db-expenses', function (req, res) {
-    dbModule.getEexpenses(req, res);
+
+app.get('/residents', async function (req, res) {
+    let residents = await dbModule.getResidents();
+    //console.log(fees[0].feesDate.getDate());
+    res.render('./pages/residents', { //find temlate.ejs that exist in views directory
+        residents: residents
+    });
+});
+
+app.get('/payments', function (req, res) {
+    dbModule.getPayments(req, res);
 });
 
 // app.get('/userinfo/:user_id', function (req, res) {
