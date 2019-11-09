@@ -19,16 +19,23 @@ dbModule.connectionPromise
 function register(req, res) {
     let userName = req.body.userName;
     let password = req.body.password;
-    for (let m of manegers) {
+    let apartmentId=req.body.apartmentId;
+    let userId=req.body.userId;
+    for (let m of managers) {
         if (m.userName == userName && m.managerPassword == password)
             res.send('you alraedy exist');
     }
-    let maneger = {
-        userName,
-        password
+    let manager = {
+        id:userId,
+        apartmentId:apartmentId,
+        userName:userName,
+        password:password
     };
-    manegers.push(maneger);
+   // managers.push(maneger);
+    debugger;
+    dbModule.setManager(manager).then(()=>{
     res.send('registration successful');
+    });
 }
 
 function login(req, res) {
@@ -36,10 +43,10 @@ function login(req, res) {
     let password = req.body.password;
     console.log(userName);
     console.log(password);
-    for (let m of manegers) {
-        if (m.userName == userName && m.password == password)
+    for (let m of managers) {
+        if (m.userName == userName && m.managerPassword == password)
             res.send('hello to ' + userName);
     }
     res.status(500);
-    res.send('try again');
+    res.send('Login Failed. Please check email/password.');
 }

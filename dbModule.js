@@ -21,7 +21,8 @@ module.exports = {
     connectionPromise,
     getFees,
     getEexpenses,
-    getManagers
+    getManagers,
+    setManager
 }
 
 async function getFees() {
@@ -42,4 +43,9 @@ async function getManagers() {
     let d = db.query("select * from manager");
     let managers = await d;
     return managers;
+}
+
+async function setManager(m) {
+    let d=db.query("insert into manager values("+m.id+","+m.apartmentId+",'"+m.userName+"','"+m.password+"')");
+    return await d;;
 }

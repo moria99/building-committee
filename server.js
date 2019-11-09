@@ -73,7 +73,8 @@ app.listen(port, () => {
 // console.log("the sum is: " + sum);
 
 app.post('/loginReg/register', (req, res) => {
-    return loginReg.register(req, res);
+    debugger;
+    loginReg.register(req, res);
 });
 app.post('/loginReg/login', (req, res) => {
     return loginReg.login(req, res);
