@@ -1,6 +1,5 @@
         // listen to click event of the submit button
         $('#submitBtn').click(function (e) {
-            debugger;
             // make sure the form is not submitted
             e.preventDefault();
             // run the form validations

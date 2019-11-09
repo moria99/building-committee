@@ -1,8 +1,35 @@
 <!DOCTYPE html>
 <html>
 
+<head>
+    <link rel="stylesheet" type="text/css" href="css/tables.css">
+</head>
+
 <body>
     <%-include navBar %>
+    <br><br>
+    <h1>טבלת שכנים</h1>
+    <br><br>
+    <table align="center">
+        <tr>
+            <th>מייל</th>
+            <th>טלפון 2</th>
+            <th>טלפון 1</th>
+            <th>שם משפחה</th>
+            <th>שם פרטי</th>
+            <th>מס' דירה</th>
+        </tr>
+        <%for(let r of residents){%>
+        <tr>
+            <td><%=r.email%></td>
+            <td><%=r.phone2%></td>
+            <td><%=r.phone1%></td>
+            <td><%=r.lastName%></td>
+            <td><%=r.firstName%></td>
+            <td><%=r.apartmentId%></td>
+        </tr>
+        <%}%>
+</table>
 </body>
 
 </html>

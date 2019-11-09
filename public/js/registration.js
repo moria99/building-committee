@@ -12,6 +12,8 @@
                     url: "loginReg/register",
                     // the user data 
                     data: {
+                        managerId: $('#managerId').val(),
+                        apartmentId: $('#apartmentId').val(),
                         userName: $('#userName').val(),
                         password: $('#password').val(),
                         userId: $('#userId').val(),

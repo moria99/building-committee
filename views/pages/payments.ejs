@@ -1,6 +1,32 @@
 <!DOCTYPE html>
 <html>
-   <body>
-        <%-include navBar %>
+
+<head>
+   <link rel="stylesheet" type="text/css" href="css/tables.css">
+</head>
+
+<body>
+   <%-include navBar %>
+   <br><br>
+   <h1>טבלת תשלומים</h1>
+   <br><br>
+   <table align="center">
+      <tr>
+         <th>אחר</th>
+         <th>נקיון</th>
+         <th>חשמל</th>
+         <th>תאריך</th>
+      </tr>
+      <%for(let e of expenses){%>
+      <tr>
+         <%let date=e.dDate%>
+         <td><%=e.other%></td>
+         <td><%=e.cleaning%></td>
+         <td><%=e.electricity%></td>
+         <td><%=(date.getDate()+1)+"/"+(date.getMonth()+1)+"/"+date.getFullYear()%></td>
+      </tr>
+      <%}%>
+
+        </table>
    </body> 
 </html>

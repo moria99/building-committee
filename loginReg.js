@@ -19,22 +19,22 @@ dbModule.connectionPromise
 function register(req, res) {
     let userName = req.body.userName;
     let password = req.body.password;
-    let apartmentId=req.body.apartmentId;
-    let userId=req.body.userId;
+    let apartmentId = req.body.apartmentId;
+    let managerId = req.body.managerId;
     for (let m of managers) {
         if (m.userName == userName && m.managerPassword == password)
             res.send('you alraedy exist');
     }
     let manager = {
-        id:userId,
-        apartmentId:apartmentId,
-        userName:userName,
-        password:password
+        managerId,
+        apartmentId,
+        userName,
+        password,
     };
-   // managers.push(maneger);
-    debugger;
-    dbModule.setManager(manager).then(()=>{
-    res.send('registration successful');
+    managers.push(manager);
+    console.log(managers);
+    dbModule.setManager(manager).then(() => {
+        res.send('registration successful');
     });
 }
 
