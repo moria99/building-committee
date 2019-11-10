@@ -1,7 +1,7 @@
 
 /* Full-width input fields */
   input{
-  width: 100%;
+  width: 90%;
   padding: 15px;
   margin: 5px 0 22px 0;
   display: inline-block;
@@ -69,11 +69,11 @@ button:hover {
 
 /* Modal Content/Box */
 .modal-content {
-    text-align: right;
+  text-align: right;
   background-color: #fefefe;
   margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 550px; /* Could be more or less, depending on screen size */
 }
 
 /* Style the horizontal ruler */
@@ -84,17 +84,12 @@ hr {
 
 /* The Close Button (x) */
 .close {
-  position: absolute;
-  right: 35px;
-  top: 15px;
+  position: relative;
+  right: 3%;
+  top: 1%;
   font-size: 40px;
-  font-weight: bold;
+  /* font-weight: bold; */
   color: #6e0303;
-}
-
-.close:hover,
-.close:focus {
-  cursor: pointer;
 }
 
 /* Clear floats */
