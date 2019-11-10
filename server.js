@@ -87,5 +87,5 @@ app.post('/loginReg/register', (req, res) => {
     loginReg.register(req, res);
 });
 app.post('/loginReg/login', (req, res) => {
-    return loginReg.login(req, res);
+    loginReg.login(req, res);
 });

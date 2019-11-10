@@ -13,7 +13,6 @@ let connectionPromise = mysql.createPool({ //create conected to the data base
         db = c;
     })
     .catch((e) => {
-        console.log("rrr");
         console.error(e);
     });
 
@@ -29,7 +28,6 @@ module.exports = {
 async function getFees() {
     let d = db.query("select * from fees");
     let fees = await d;
-    console.log(fees)
     return fees;
 }
 
@@ -54,7 +52,9 @@ async function getResidents() {
 }
 
 async function setManager(m) {
-    let d=db.query("insert into manager (`managerId`, `apartmentId`, `userName`, `managerPassword`) values("+m.managerId+","+m.apartmentId+",'"+m.userName+"','"+m.password+"')");
-    let a=await d;
+    let d=db.query("insert into manager (`managerId`, `apartmentId`, `userName`, `managerPassword`) values("+m.managerId+","+m.apartmentId+",'"+m.userName+"','"+m.managerPassword+"')");
+    let a=await d.catch((err) => console.log('caught it'));
     return a;
 }
+
+

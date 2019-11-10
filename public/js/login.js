@@ -16,10 +16,11 @@
                         password: $('#password').val()
                     },
                     complete: // this function will run if the request is successful
-                        function (xhr, status) {
+                       
+                    function (xhr, status) {
                             // check if there is an error
                             if (status === 'error')
-                                alert(xhr.responseText);
+                                alert(xhr.responseText);  //it's error to accsses to xhr, why? (becouse i call back...) 
                             else
                                 alert(xhr.responseText);
                         }
