@@ -56,5 +56,3 @@ async function setManager(m) {
     let a=await d.catch((err) => console.log('caught it'));
     return a;
 }
-
-

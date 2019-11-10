@@ -19,8 +19,9 @@ dbModule.connectionPromise
 function register(req, res) {
     let userName = req.body.userName;
     let password = req.body.password;
-    let apartmentId = req.body.apartmentId;
-    let managerId = req.body.managerId;
+    let managerId=req.body.managerId;
+    let apartmentId=req.body.apartmentId;
+
     for (let m of managers) {
         if (m.userName == userName && m.managerPassword == password)
             res.send('you alraedy exist');

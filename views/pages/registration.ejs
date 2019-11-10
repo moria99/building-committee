@@ -9,6 +9,7 @@
 
 <body>
     <%-include navBar %>
+    <%-include back%>
     <form id="myForm">
         <table>
             <tr>
@@ -28,7 +29,16 @@
                 <td><input type="password" name="password" id="password" placeholder="Enter Password"></td>
 
             </tr>
+            <tr>
+                <td><label for="apartmentId">מספר דירה</label></td>
+                <td><input type="text" name="apartmentId" id="apartmentId" placeholder="Enter apartmentId"></td>
 
+            </tr>
+            <tr>
+                <td><label for="managerId">תעודת זהות</label></td>
+                <td><input type="text" name="managerId" id="managerId" placeholder="Enter managerId"></td>
+
+            </tr>
             <tr>
                 <td> <input type="button" id="submitBtn" name="submit" value="submit" class="enter"></td>
                 <td></td>

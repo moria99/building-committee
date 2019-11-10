@@ -13,7 +13,7 @@
                     // the user data 
                     data: {
                         userName: $('#userName').val(),
-                        password: $('#password').val()
+                        password: $('#password').val(),
                     },
                     complete: // this function will run if the request is successful
                        
