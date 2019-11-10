@@ -1,9 +1,11 @@
+
 const dbModule = require("./dbModule.js");
 
 module.exports = {
     register,
     login
 };
+
 
 let managers;
 dbModule.connectionPromise
@@ -17,13 +19,17 @@ dbModule.connectionPromise
 function register(req, res) {
     let userName = req.body.userName;
     let password = req.body.password;
+<<<<<<< HEAD
     let managerId=req.body.managerId;
     let apartmentId=req.body.apartmentId;
+
     for (let m of managers) {
         if (m.userName == userName && m.managerPassword == password)
             res.send('you alraedy exist');
     }
     let manager = {
+        managerId,
+        apartmentId,
         userName,
         password,
         apartmentId,
@@ -36,6 +42,7 @@ function register(req, res) {
     res.send('registration successful');
    })
  
+
 }
 
 function login(req, res) {
@@ -44,9 +51,9 @@ function login(req, res) {
     console.log(userName);
     console.log(password);
     for (let m of managers) {
-        if (m.userName == userName && m.password == password)
+        if (m.userName == userName && m.managerPassword == password)
             res.send('hello to ' + userName);
     }
     res.status(500);
-    res.send('try again');
+    res.send('Login Failed. Please check email/password.');
 }

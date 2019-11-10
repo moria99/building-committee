@@ -4,7 +4,7 @@ const lodash = require('lodash'); //run lodash direectory (at js)  and put an ou
 const cookiParser = require('cookie-parser');
 const loginReg = require("./loginReg.js");
 const dbModule = require("./dbModule.js");
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 3000 ;
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -15,7 +15,7 @@ app.use(cookiParser()); //parse cookie for comfortable used
 app.use(express.json()); //parse the body to comfortable used
 app.use(express.urlencoded()); //parse the url to comfortable used
 
-//in express module i can play with server more eazy
+//in express module i can used with server more eazy
 app.get('/', function (req, res) {
     res.render('./pages/homePage', {})
 });
@@ -83,7 +83,8 @@ app.listen(port, () => {
 // console.log("the sum is: " + sum);
 
 app.post('/loginReg/register', (req, res) => {
-    return loginReg.register(req, res);
+    debugger;
+    loginReg.register(req, res);
 });
 app.post('/loginReg/login', (req, res) => {
     return loginReg.login(req, res);

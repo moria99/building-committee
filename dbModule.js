@@ -39,11 +39,13 @@ async function getPayments(req, res) {
     return payments;
 }
 
+
 async function getManagers() {
     let d = db.query("select * from manager");
     let managers = await d;
     return managers;
 }
+
 
 async function getResidents() {
     let d = db.query("select * from residents");
@@ -52,9 +54,9 @@ async function getResidents() {
 }
 
 async function setManager(m) {
-    console.log(m);
-  let d=db.query("insert into manager (`managerId`, `apartmentId`, `userName`, `managerPassword`) values("+m.managerId+","+m.apartmentId+",'"+m.userName+"','"+m.password+"')");
-  let a=await d;
-  
-  return a;
+
+    let d=db.query("insert into manager (`managerId`, `apartmentId`, `userName`, `managerPassword`) values("+m.managerId+","+m.apartmentId+",'"+m.userName+"','"+m.password+"')");
+    let a=await d;
+    return a;
 }
+
