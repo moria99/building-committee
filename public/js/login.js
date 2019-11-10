@@ -1,6 +1,5 @@
         // listen to click event of the submit button
         $('#submitBtn').click(function (e) {
-            debugger;
             // make sure the form is not submitted
             e.preventDefault();
             // run the form validations
@@ -14,7 +13,7 @@
                     // the user data 
                     data: {
                         userName: $('#userName').val(),
-                        password: $('#password').val()
+                        password: $('#password').val(),
                     },
                     complete: // this function will run if the request is successful
                         function (xhr, status) {

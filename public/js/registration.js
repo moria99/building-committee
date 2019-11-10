@@ -13,7 +13,9 @@
                     // the user data 
                     data: {
                         userName: $('#userName').val(),
-                        password: $('#password').val()
+                        password: $('#password').val(),
+                        apartmentId:$('#apartmentId').val(),
+                        managerId:$('#managerId').val()
                     },
                     complete: // this function will run if the request is successful
                         function (xhr, status) {
