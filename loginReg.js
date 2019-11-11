@@ -7,7 +7,7 @@ module.exports = {
 };
 
 
-let managers;
+let managers=[];
 dbModule.connectionPromise
     .then(() => {
         dbModule.getManagers()
@@ -30,28 +30,22 @@ function register(req, res) {
         managerId,
         apartmentId,
         userName,
-        password,
-        apartmentId,
-        managerId
-    
+        managerPassword:password,
     };
     managers.push(manager);
-    console.log(manager);
-   dbModule.setManager(manager).then(()=>{
-    res.send('registration successful');
-   })
- 
-
+    dbModule.setManager(manager).then(() => {
+        res.send('registration successful');
+    });
 }
 
 function login(req, res) {
     let userName = req.body.userName;
     let password = req.body.password;
-    console.log(userName);
-    console.log(password);
     for (let m of managers) {
-        if (m.userName == userName && m.managerPassword == password)
+        if (m.userName == userName && m.managerPassword == password){
+            console.log(userName);
             res.send('hello to ' + userName);
+        }
     }
     res.status(500);
     res.send('Login Failed. Please check email/password.');

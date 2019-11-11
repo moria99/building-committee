@@ -15,9 +15,8 @@
                         managerId: $('#managerId').val(),
                         apartmentId: $('#apartmentId').val(),
                         userName: $('#userName').val(),
-                        password: $('#password').val(),
-                        apartmentId:$('#apartmentId').val(),
-                        managerId:$('#managerId').val()
+                        password: $('#password').val()
+
                     },
                     complete: // this function will run if the request is successful
                         function (xhr, status) {
