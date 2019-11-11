@@ -1,6 +1,5 @@
-
 /* Full-width input fields */
-  input{
+input {
   width: 90%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -17,7 +16,7 @@ input:focus {
 }
 
 /* Set a style for all buttons */
-button{
+button {
   background-color: rgb(33, 129, 113);
   color: white;
   padding: 14px 20px;
@@ -28,12 +27,12 @@ button{
   opacity: 0.9;
 }
 
-button[type=submit]{
-    width: 50%;
+button[type=submit] {
+  width: 50%;
 }
 
 button:hover {
-  opacity:1;
+  opacity: 1;
 }
 
 /* Extra styles for the cancel button */
@@ -43,7 +42,8 @@ button:hover {
 }
 
 /* Float cancel and signup buttons and add an equal width */
-.cancelbtn, .signupbtn {
+.cancelbtn,
+.signupbtn {
   float: left;
   width: 50%;
 }
@@ -55,14 +55,20 @@ button:hover {
 
 /* The Modal (background) */
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
   background-color: #474e5d;
   padding-top: 50px;
 }
@@ -71,9 +77,11 @@ button:hover {
 .modal-content {
   text-align: right;
   background-color: #fefefe;
-  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  margin: 5% auto 15% auto;
+  /* 5% from the top, 15% from the bottom and centered */
   border: 1px solid #888;
-  width: 550px; /* Could be more or less, depending on screen size */
+  width: 550px;
+  /* Could be more or less, depending on screen size */
 }
 
 /* Style the horizontal ruler */
@@ -101,7 +109,9 @@ hr {
 
 /* Change styles for cancel button and signup button on extra small screens */
 @media screen and (max-width: 300px) {
-  .cancelbtn, .signupbtn {
+
+  .cancelbtn,
+  .signupbtn {
     width: 100%;
   }
 }

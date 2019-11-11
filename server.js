@@ -4,7 +4,8 @@ const lodash = require('lodash'); //run lodash direectory (at js)  and put an ou
 const cookiParser = require('cookie-parser');
 const loginReg = require("./loginReg.js");
 const dbModule = require("./dbModule.js");
-const port = process.env.PORT || 3000 ;
+const createData = require("./createData.js");
+const port = process.env.PORT || 80;
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -42,12 +43,12 @@ app.get('/fees', async function (req, res) {
     });
 });
 
-app.get('/payments',async function (req, res) {
-    let expenses=await dbModule.getPayments();
-    res.render('./pages/payments',{
-        expenses:expenses
+app.get('/payments', async function (req, res) {
+    let expenses = await dbModule.getPayments();
+    res.render('./pages/payments', {
+        expenses: expenses
     })
- });
+});
 
 app.get('/residents', async function (req, res) {
     let residents = await dbModule.getResidents();
@@ -83,9 +84,12 @@ app.listen(port, () => {
 // console.log("the sum is: " + sum);
 
 app.post('/loginReg/register', (req, res) => {
-    debugger;
     loginReg.register(req, res);
 });
 app.post('/loginReg/login', (req, res) => {
     loginReg.login(req, res);
 });
+
+app.post('/createData/newPayment', (req, res) => {
+    createData.newPayments(req, res)
+})
