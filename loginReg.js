@@ -19,7 +19,6 @@ dbModule.connectionPromise
 function register(req, res) {
     let userName = req.body.userName;
     let password = req.body.password;
-<<<<<<< HEAD
     let managerId=req.body.managerId;
     let apartmentId=req.body.apartmentId;
 
