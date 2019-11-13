@@ -23,9 +23,9 @@ function newPayments(req, res) {
     dbModule.setPayment(payment).then(() => {
         // location.reload();
         res.send('add successfull');
-    }).catch((e)=>{
+    }).catch((e) => {
         res.send(e)
-});
+    });
 }
 
 
@@ -50,12 +50,7 @@ function newResidents(req, res) {
     dbModule.setResidents(residents).then(() => {
         // location.reload();
         res.send('add successfull');
-    })
-
-    dbModule.setPayment(payment).then(() => {
-        res.send('add new successful');
     }).catch((e) => {
         res.send(e.sqlMessage);
     });
-
 }
