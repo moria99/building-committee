@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="css/forms.css">
+</head>
+
+<body>
+
+    <!-- Button to open the modal -->
+    <div style="text-align: center;">
+        <button onclick="document.getElementById('id01').style.display='block'">חדש</button>
+    </div>
+    <!-- The Modal (contains the Sign Up form) -->
+    <div id="id01" class="modal">
+        <form id="myForm" class="modal-content">
+            <div class="container">
+                <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                    title="Close Modal">x</span>
+                <h3><b>הכנס שכן חדש <span id=partOfHeader></span></b></h3>
+                <hr>
+                <label for="id0"><b>מספר דירה</b></label>
+                <input type="number" placeholder="הכנס מספר דירה" name="id0" id="apartmentId" required>
+
+                <label for="firstName"><b>שם פרטי</b></label>
+                <input type="text" placeholder="הכנס שם פרטי" name="firstName" id="firstName" required>
+
+                <label for="lastName"><b>שם משפחה</b></label>
+                <input type="text" placeholder="הכנס שם משפחה" name="lastName" id="lastName" required>
+
+                <label for="phone1"><b>טלפון 1</b></label>
+                <input type="text" placeholder="הכנס טלפון" name="phone1" id="phone1">
+
+                <label for="phone2"><b>טלפון 2</b></label>
+                <input type="text" placeholder="הכנס טלפון" name="phone2" id="phone2">
+
+                <label for="email"><b>מייל</b></label>
+                <input type="email" placeholder="הכנס מייל" name="email" id="email">
+
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('id01').style.display='none'"
+                        class="cancelbtn">ביטול</button>
+                    <button type="submit" class="signup" id="submitBtn">אישור</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+<script src="../js/residents.js"></script>
+
+</html>

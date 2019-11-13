@@ -1,4 +1,3 @@
-
 const dbModule = require("./dbModule.js");
 
 module.exports = {
@@ -7,7 +6,7 @@ module.exports = {
 };
 
 
-let managers=[];
+let managers = [];
 dbModule.connectionPromise
     .then(() => {
         dbModule.getManagers()
@@ -19,18 +18,19 @@ dbModule.connectionPromise
 function register(req, res) {
     let userName = req.body.userName;
     let password = req.body.password;
-    let managerId=req.body.managerId;
-    let apartmentId=req.body.apartmentId;
+    let managerId = req.body.managerId;
+    let apartmentId = req.body.apartmentId;
 
     for (let m of managers) {
-        if (m.userName == userName && m.managerPassword == password)
+        if (m.userName == userName && m.managerPassword == password){
             res.send('you alraedy exist');
-    }
+            return;
+    }}
     let manager = {
         managerId,
         apartmentId,
         userName,
-        managerPassword:password,
+        managerPassword: password,
     };
     managers.push(manager);
     dbModule.setManager(manager).then(() => {
@@ -42,7 +42,7 @@ function login(req, res) {
     let userName = req.body.userName;
     let password = req.body.password;
     for (let m of managers) {
-        if (m.userName == userName && m.managerPassword == password){
+        if (m.userName == userName && m.managerPassword == password) {
             console.log(userName);
             res.send('hello to ' + userName);
         }
