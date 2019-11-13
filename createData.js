@@ -17,8 +17,8 @@ function newPayments(req, res) {
         other
     };
     dbModule.setPayment(payment).then(() => {
-        console.log(payment);
-        //location.reload(true),
         res.send('add new successful');
+    }).catch((e) => {
+        res.send(e.sqlMessage);
     });
 }

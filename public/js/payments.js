@@ -25,8 +25,11 @@
                            // check if there is an error
                            if (status === 'error')
                                alert(xhr.responseText);
-                           else
+                           else {
                                alert(xhr.responseText);
+                               location.reload();
+                               document.getElementById('id01').style.display = 'none';
+                           }
                        }
                });
            }

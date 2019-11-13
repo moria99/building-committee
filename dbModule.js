@@ -54,13 +54,13 @@ async function getResidents() {
 
 async function setManager(m) {
     let d = db.query("insert into manager (`managerId`, `apartmentId`, `userName`, `managerPassword`) values(" + m.managerId + "," + m.apartmentId + ",'" + m.userName + "','" + m.managerPassword + "')");
-    let a = await d.catch((err) => console.log('caught it'));
+    let a = await d;
     return a;
 }
 
 async function setPayment(p) {
     console.log(p);
     let d = db.query("INSERT INTO expenses (`dDate`,`electricity`, `cleaning`, `other`) VALUES ('" + p.dDate + "'," + p.electricity + "," + p.cleaning + "," + p.other + ")");
-    let a = await d.catch((err) => console.log('caught it'));
+    let a = await d;
     return a;
 }

@@ -2,7 +2,11 @@
 <html>
 
 <head>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" type="text/css" href="css/tables.css">
+
 </head>
 
 <body>
@@ -11,7 +15,7 @@
     <br><br>
     <h1>טבלת שכנים</h1>
     <br><br>
-    <table align="center">
+    <table id="tbl" align="center">
         <tr>
             <th>מייל</th>
             <th>טלפון 2</th>
@@ -32,5 +36,15 @@
         <%}%>
 </table>
 </body>
-
+<script>
+    var table= $("#tbl");
+    $("#tbl tr").click(function(){
+   $(this).addClass('selected').siblings().removeClass('selected'); 
+   var value=$(this).parents('tr').children('td');
+//    var value=$(this).find('td').html();
+   var v=table.selectedRow;
+   console.log(v);
+   alert(v);    
+});
+</script>
 </html>
