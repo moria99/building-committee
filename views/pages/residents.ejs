@@ -25,7 +25,7 @@
             <th>מס' דירה</th>
         </tr>
         <%for(let r of residents){%>
-        <tr>
+        <tr onclick="func(this)">
             <td><%=r.email%></td>
             <td><%=r.phone2%></td>
             <td><%=r.phone1%></td>
@@ -37,14 +37,17 @@
 </table>
 </body>
 <script>
-    var table= $("#tbl");
-    $("#tbl tr").click(function(){
-   $(this).addClass('selected').siblings().removeClass('selected'); 
-   var value=$(this).parents('tr').children('td');
-//    var value=$(this).find('td').html();
-   var v=table.selectedRow;
-   console.log(v);
-   alert(v);    
-});
+    function func(tr){
+        console.log(tr);
+    }
+//     var table= $("#tbl");
+//     $("#tbl tr").click(function(){
+//    $(this).addClass('selected').siblings().removeClass('selected'); 
+//    var value=$(this).parents('tr').children('td');
+// //    var value=$(this).find('td').html();
+//    var v=table.selectedRow;
+//    console.log(v);
+//    alert(v);    
+//});
 </script>
 </html>
