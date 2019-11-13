@@ -23,7 +23,9 @@ module.exports = {
     getManagers,
     getResidents,
     setManager,
-    setPayment
+    setPayment,
+    setResidents
+
 }
 
 async function getFees() {
@@ -58,9 +60,21 @@ async function setManager(m) {
     return a;
 }
 
-async function setPayment(p) {
-    console.log(p);
-    let d = db.query("INSERT INTO expenses (`dDate`,`electricity`, `cleaning`, `other`) VALUES ('" + p.dDate + "'," + p.electricity + "," + p.cleaning + "," + p.other + ")");
+
+async function setManager(m) {
+    let d = db.query("insert into manager (`managerId`, `apartmentId`, `userName`, `managerPassword`) values(" + m.managerId + "," + m.apartmentId + ",'" + m.userName + "','" + m.managerPassword + "')");
     let a = await d;
     return a;
 }
+
+async function setPayment(p) {
+    let d = db.query("INSERT INTO `localhost`.`expenses` ('dDate', `electricity`, `cleaning`, `other`) VALUES('" + p.dDate + "'," + p.electricity + "," + p.cleaning + "," + p.other + ")");
+    let a = await d;
+    return a;
+}
+
+async function setResidents(r) {
+    let d = db.query("INSERT INTO `localhost`.`residents` (`apartmentId`, `firstName`, `lastName`, `phone1`, `phone2`, `email`) VALUES('" + r.apartmentId + "'," + r.firstName + "," + r.lastName + "," + r.phone1 + "," + r.phone2 + "," + r.email + ")");
+    let a = await d;
+    return a;
+} 

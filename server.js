@@ -89,7 +89,9 @@ app.post('/loginReg/register', (req, res) => {
 app.post('/loginReg/login', (req, res) => {
     loginReg.login(req, res);
 });
-
-app.post('/createData/newPayment', (req, res) => {
-    createData.newPayments(req, res)
-})
+app.post("/createData/newPayment", (req, res) => {
+    createData.newPayments(req, res);
+});
+app.post("/createData/newResidents", (req, res) => {
+    createData.newResidents(req, res);
+});

@@ -1,8 +1,10 @@
 const dbModule = require("./dbModule.js");
 
 module.exports = {
-    newPayments
+    newPayments,
+    newResidents
 };
+
 
 function newPayments(req, res) {
     let dDate = req.body.dDate;
@@ -10,15 +12,50 @@ function newPayments(req, res) {
     let cleaning = req.body.cleaning;
     let other = req.body.other;
 
+
     let payment = {
         dDate,
         electricity,
         cleaning,
         other
     };
+
+    dbModule.setPayment(payment).then(() => {
+        // location.reload();
+        res.send('add successfull');
+    }).catch((e)=>{
+        res.send(e)
+});
+}
+
+
+function newResidents(req, res) {
+    let apartmentId = req.body.apartmentId;
+    let firstName = req.body.firstName;
+    let lastName = req.body.lastName;
+    let phone1 = req.body.phone1;
+    let phone2 = req.body.phone2;
+    let email = req.body.email;
+
+    let residents = {
+        apartmentId,
+        firstName,
+        lastName,
+        phone1,
+        phone2,
+        email
+    };
+
+    console.log(residents);
+    dbModule.setResidents(residents).then(() => {
+        // location.reload();
+        res.send('add successfull');
+    })
+
     dbModule.setPayment(payment).then(() => {
         res.send('add new successful');
     }).catch((e) => {
         res.send(e.sqlMessage);
     });
+
 }
