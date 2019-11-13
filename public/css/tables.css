@@ -16,7 +16,13 @@ tr:nth-child(even) {
 
 h1 {
     text-align: center;
-} 
+}
+
 h3 {
     text-align: center;
-} 
+}
+
+.selected {
+    background-color: brown;
+    color: #FFF;
+}

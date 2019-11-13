@@ -5,14 +5,6 @@ module.exports = {
     newResidents
 };
 
-// let managers = [];
-// dbModule.connectionPromise
-//     .then(() => {
-//         dbModule.getPayments()
-//             .then((d) => {
-//                 managers = d;
-//             });
-//     })
 
 function newPayments(req, res) {
     let dDate = req.body.dDate;
@@ -59,4 +51,11 @@ function newResidents(req, res) {
         // location.reload();
         res.send('add successfull');
     })
+
+    dbModule.setPayment(payment).then(() => {
+        res.send('add new successful');
+    }).catch((e) => {
+        res.send(e.sqlMessage);
+    });
+
 }

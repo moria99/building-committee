@@ -22,18 +22,20 @@ function register(req, res) {
     let apartmentId = req.body.apartmentId;
 
     for (let m of managers) {
-        if (m.userName == userName && m.managerPassword == password){
-            res.send('you alraedy exist');
+        if (m.userName == userName && m.managerPassword == password) {
+            res.send('you already exist');
             return;
-    }}
+        }
+    }
     let manager = {
         managerId,
         apartmentId,
         userName,
         managerPassword: password,
     };
-    managers.push(manager);
+    console.log(manager);
     dbModule.setManager(manager).then(() => {
+        managers.push(manager);
         res.send('registration successful');
     });
 }
