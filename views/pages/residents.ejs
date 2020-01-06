@@ -17,6 +17,7 @@
     <br><br>
     <table id="tbl" align="center">
         <tr>
+            <th style="width:3%;">עריכה</th style="width:3%;">
             <th>מייל</th>
             <th>טלפון 2</th>
             <th>טלפון 1</th>
@@ -25,7 +26,9 @@
             <th>מס' דירה</th>
         </tr>
         <%for(let r of residents){%>
-        <tr onclick="func(this)">
+        <tr>
+            <td><img src="images/edit.png" style="width: 60%;"
+                    onclick="editResident('<%=r.apartmentId%>','<%=r.firstName%>','<%=r.lastName%>','<%=r.phone1%>','<%=r.phone2%>','<%=r.email%>')">
             <td><%=r.email%></td>
             <td><%=r.phone2%></td>
             <td><%=r.phone1%></td>
@@ -37,18 +40,6 @@
 </table>
 <%-include newResidents%>
 </body>
-<script>
-    function func(tr){
-        console.log(tr);
-    }
-//     var table= $("#tbl");
-//     $("#tbl tr").click(function(){
-//    $(this).addClass('selected').siblings().removeClass('selected'); 
-//    var value=$(this).parents('tr').children('td');
-// //    var value=$(this).find('td').html();
-//    var v=table.selectedRow;
-//    console.log(v);
-//    alert(v);    
-//});
-</script>
+<script src='./js/resident.js'></script>
+
 </html>

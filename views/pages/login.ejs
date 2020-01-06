@@ -13,17 +13,9 @@
         } */
 
         img {
-            float: right;
+            /* float: right; */
 
         }
-
-        /* body {
-            background-color: greenyellow;
-            font-size: 2.5em;
-            font-family: 'times New Roman', Arial;
-            font-weight: 800;
-            text-transform: capitalize;
-        } */
 
         #a {
             float: right;
@@ -54,9 +46,9 @@
 <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
     crossorigin="anonymous"></script>
 
-<body>
-        <%-include homePage %>
-        <%-include back%>
+<body style="text-align: center;">
+    <%-include homePage %>
+    <%-include back%>
 
     <h1>
         !בניין לעניין
@@ -65,25 +57,18 @@
         height="250" width="auto" alt="בניין לעניין" onmouseover="this.style.zoom='120%'"
         onmouseout="this.style.zoom='normal'" />
     <form id="myForm">
-        <table>
-      
-                <td><label for="user">User: </label></td>
-                <td><input type="text" name="user" id="userName" placeholder="Enter User"></td>
+        <table align="center">
+
+            <td><label for=" user">User: </label></td>
+            <td><input type="text" name="user" id="userName" placeholder="Enter User"></td>
             </tr>
             <tr>
                 <td><label for="password">password:</label></td>
                 <td><input type="password" name="password" id="password" placeholder="Enter Password"></td>
-
-            </tr>
-            <tr>
-                <td> <input type="button" id="submitBtn" name="submit" value="submit" class="enter"></td>
-                <td></td>
-
-
-                <td> <input type="button" name="password" value="forgot password?" style="cursor:help" class="forgot">
-                </td>
             </tr>
         </table>
+        <input type="button" id="submitBtn" name="submit" value="submit" class="enter">
+        <input type="button" name="password" value="forgot password?" style="cursor:help" class="forgot">
     </form>
 
     <script src='./js/login.js'></script>

@@ -2,17 +2,21 @@
 <html>
 
 <head>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="css/forms.css">
     <link rel="stylesheet" type="text/css" href="css/tables.css">
 </head>
 
 <body>
-    <%- include navBar %>
+    <%-include navBar %>
     <%-include back%>
     <br><br>
     <h1>טבלת גבייה</h1>
     <br><br>
     <table align="center">
         <tr>
+            <th style="width:3%;">עריכה</th>
             <th>הערות</th>
             <th>חוב</th>
             <th>סכום ששולם</th>
@@ -20,19 +24,59 @@
             <th>מס' דירה</th>
             <th>תאריך</th>
         </tr>
+
         <%for(let f of feess){%>
+
         <tr>
-            <%let date=f.feesDate%>
+            <%let date=f.feesDate;%>
+            <% let d=(date.getDate()+1)+"/"+(date.getMonth()+1)+"/"+date.getFullYear();%>
+            <td><img src="images/edit.png" style="width: 60%;"
+                    onclick="editFees('<%=d%>','<%=f.apartmentId%>','<%=f.amountToPay%>','<%=f.amountPayed%>','<%=f.balanceDue%>','<%=f.comments%>')">
+            </td>
             <td><%=f.comments%></td>
             <td><%=f.balanceDue%></td>
             <td><%=f.amountPayed%></td>
             <td><%=f.amountToPay%></td>
             <td><%=f.apartmentId%></td>
-            <td><%=(date.getDate()+1)+"/"+(date.getMonth()+1)+"/"+date.getFullYear()%></td>
+            <td><%=d%></td>
         </tr>
         <%}%>
-</table>
-<br><br><br><br>
+    </table>
+    <div id="id01" class="modal">
+        <form id="myForm" class="modal-content">
+            <div class="container">
+                <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                    title="Close Modal">x</span>
+                <h3><b>עדכון תשלום<span id="partOfHeader"></span></b></h3>
+                <hr>
+                <label for="id0"><b>תאריך</b></label>
+                <input type="date" name="id0" id="date" required>
 
+                <label for="apartmentId"><b>מס' דירה</b></label>
+                <input type="number" name="apartmentId" id="apartmentId" required>
+
+                <label for="amountToPay"><b>סכום לתשלום</b></label>
+                <input type="number" name="amountToPay" id="amountToPay" required>
+
+                <label for="amountPayed"><b>סכום ששולם</b></label>
+                <input type="number" name="amountPayed" id="amountPayed">
+
+                <label for="balanceDue"><b>חוב</b></label>
+                <input type="number" name="balanceDue" id="balanceDue">
+
+                <label for="comments"><b>הערות</b></label>
+                <input type="text" placeholder="הכנס הערות" name="comments" id="comments">
+
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('id01').style.display='none'"
+                        class="cancelbtn">ביטול</button>
+                    <button type="submit" class="signup" id="submitBtn">אישור</button>
+                </div>
+            </div>
+        </form>
+    </div>
 </body>
+<script src='./js/fees.js'></script>
+
 </html>
